@@ -4,7 +4,7 @@ import TaskCard from "./components/TaskCard";
 import { TaskContext } from "./context/TaskAppContext";
 
 function App() {
-  const [values, setValues] = useContext(TaskContext);
+  const [values, setValues, save] = useContext(TaskContext);
 
   const [deleting, setDeleting] = useState(false);
 
@@ -48,6 +48,7 @@ function App() {
                 ...values,
                 { titulo: title, description: description },
               ]);
+              save();
             }
           }}
         >

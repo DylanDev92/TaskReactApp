@@ -4,7 +4,7 @@ import { TiDelete, TiTick } from "react-icons/ti";
 import { TaskContext } from "../context/TaskAppContext";
 
 export default function TaskCard(props) {
-  const [values, setValues] = useContext(TaskContext);
+  const [values, setValues, save] = useContext(TaskContext);
 
   const [done, setDone] = useState(false);
 
@@ -48,6 +48,7 @@ export default function TaskCard(props) {
                 );
                 setDone(false);
                 props.setDeleting(false);
+                save(values.filter((x) => values.indexOf(x) !== props.idCard));
               }, 1000);
             }
           }}
